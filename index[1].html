@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBIT Fest Realm | Event Command</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span><span><b>DBIT</b><small>FEST REALM</small></span></a>
+    <div class="season-label">THE EVENT COUNCIL</div>
+    <nav>
+      <button class="nav-link active" data-page="overview"><span>⌂</span> Overview</button>
+      <button class="nav-link" data-page="planner"><span>⚔</span> Event planner</button>
+      <button class="nav-link" data-page="schedule"><span>◷</span> Schedule</button>
+      <button class="nav-link" data-page="venues"><span>♜</span> Venues & resources</button>
+      <button class="nav-link" data-page="guidelines"><span>▤</span> Fest guidelines</button>
+      <button class="nav-link" data-page="budget"><span>◈</span> Budget tracker</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="crest">DB</div><div><b>Don Bosco Institute</b><small>of Technology · Bengaluru</small></div></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">DON BOSCO INSTITUTE OF TECHNOLOGY</div><h1 id="page-title">The Council Hall</h1></div><div class="top-actions"><span class="status"><i></i> PLANNING MODE</span><button class="icon-btn" id="helpBtn" title="Help">?</button></div></header>
+
+    <section class="page active" id="overview">
+      <div class="hero">
+        <div class="hero-copy"><div class="eyebrow gold">✦ &nbsp; YOUR FESTIVAL, YOUR KINGDOM</div><h2>Bring your fest<br><em>to life.</em></h2><p>One command centre to plan events, manage venues, balance budgets and build a festival schedule worthy of a legend.</p><button class="primary-btn" data-go="planner">＋ Create an event <span>→</span></button></div>
+        <div class="hero-seal"><div class="seal-ring"><span>DBIT</span><b>✦</b><small>FEST COUNCIL</small></div></div>
+        <div class="hero-foot">DBIT GROUND <span>•</span> BENGALURU <span>•</span> FESTIVAL COMMAND</div>
+      </div>
+      <div class="section-heading"><div><div class="eyebrow">AT A GLANCE</div><h3>Your realm overview</h3></div><span class="muted" id="todayLabel"></span></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon">⚔</div><span>PLANNED ACTIVITIES</span><strong id="statEvents">0</strong><small>Across your festival</small></article>
+        <article class="stat-card"><div class="stat-icon">♜</div><span>VENUE</span><strong class="stat-word">DBIT Ground</strong><small>Primary festival arena</small></article>
+        <article class="stat-card"><div class="stat-icon">◈</div><span>ESTIMATED BUDGET</span><strong id="statBudget">₹0</strong><small>Planned activity costs</small></article>
+        <article class="stat-card"><div class="stat-icon">◷</div><span>SCHEDULED HOURS</span><strong id="statHours">0h</strong><small>Based on event durations</small></article>
+      </div>
+      <div class="dashboard-grid">
+        <article class="panel"><div class="panel-head"><div><div class="eyebrow">THE DAY'S ORDER</div><h3>Upcoming schedule</h3></div><button class="text-btn" data-go="schedule">View all →</button></div><div id="overviewSchedule" class="empty-state">No events scheduled yet. Create your first activity to begin.</div></article>
+        <article class="panel council-panel"><div class="eyebrow">COUNCIL'S ADVICE</div><h3>Plan like a master strategist.</h3><p>Start by adding your fest activities. The planner will help you estimate resources, calculate costs and organise a conflict-aware timetable.</p><button class="outline-btn" data-go="guidelines">Review planning checklist →</button></article>
+      </div>
+    </section>
+
+    <section class="page" id="planner">
+      <div class="page-intro"><div class="eyebrow gold">THE MASTER OF EVENTS</div><h2>Event <em>planner</em></h2><p>Add competitions, performances, stalls and more. We'll suggest the resources each activity needs.</p></div>
+      <div class="planner-grid">
+        <form class="panel form-panel" id="eventForm"><div class="panel-head"><h3>Commission a new event</h3><span class="required">* Required</span></div>
+          <label>Activity name *<input id="eventName" required placeholder="e.g. Battle of the Bands"></label>
+          <div class="form-row"><label>Category<select id="eventCategory"><option>Music & performance</option><option>Dance</option><option>Technical</option><option>Gaming & esports</option><option>Sports</option><option>Literary</option><option>Art & culture</option><option>Food & stalls</option><option>Fun & engagement</option></select></label><label>Expected participants<input id="eventPeople" type="number" min="1" value="50"></label></div>
+          <div class="form-row"><label>Start time<input id="eventTime" type="time" value="10:00" required></label><label>Duration (hours)<input id="eventDuration" type="number" min=".5" max="12" step=".5" value="1"></label></div>
+          <div class="form-row"><label>Estimated budget (₹)<input id="eventCost" type="number" min="0" value="5000"></label><label>Priority<select id="eventPriority"><option>Standard</option><option>High</option><option>Headline</option></select></label></div>
+          <label>Notes / special requirements<textarea id="eventNotes" rows="3" placeholder="Judges, permissions, power needs, setup notes…"></textarea></label>
+          <button class="primary-btn full-btn" type="submit">Add to the festival plan <span>→</span></button>
+        </form>
+        <div class="panel suggestions"><div class="eyebrow">RESOURCE INTELLIGENCE</div><h3>Recommended essentials</h3><p class="muted">Choose a category to see a starter checklist. Adjust it to match your actual event.</p><div id="resourceAdvice"></div></div>
+      </div>
+      <article class="panel list-panel"><div class="panel-head"><div><div class="eyebrow">YOUR FESTIVAL LINE-UP</div><h3>All planned activities</h3></div><span class="count-pill" id="eventCount">0 EVENTS</span></div><div id="eventList" class="event-list"></div></article>
+    </section>
+
+    <section class="page" id="schedule">
+      <div class="page-intro"><div class="eyebrow gold">THE RUN OF SHOW</div><h2>Festival <em>schedule</em></h2><p>Your activities arranged by start time. Overlapping events are flagged so you can resolve clashes.</p></div>
+      <div class="schedule-toolbar"><div><span class="venue-tag">♜ &nbsp; DBIT GROUND</span><span class="muted"> · Main festival venue</span></div><button class="outline-btn" id="exportSchedule">↓ Export schedule (.csv)</button></div>
+      <div class="panel"><div id="scheduleList"></div></div>
+    </section>
+
+    <section class="page" id="venues">
+      <div class="page-intro"><div class="eyebrow gold">THE KINGDOM'S GROUNDS</div><h2>Venues & <em>resources</em></h2><p>Keep venue assignments and operational requirements in one place.</p></div>
+      <div class="venue-feature"><div class="venue-symbol">♜</div><div><div class="eyebrow gold">PRIMARY FESTIVAL ARENA</div><h3>DBIT Ground</h3><p>Don Bosco Institute of Technology · Bengaluru</p><div class="venue-tags"><span>Outdoor venue</span><span>Central festival hub</span><span>Capacity: confirm with college</span></div></div><span class="available"><i></i> PRIMARY</span></div>
+      <div class="section-heading"><div><div class="eyebrow">OPERATIONS CHECKLIST</div><h3>Common fest resources</h3></div></div>
+      <div class="resource-grid" id="resourceGrid"></div>
+      <div class="notice"><b>Important:</b> Venue capacity, electrical load, permissions, safety arrangements and equipment availability must be confirmed with DBIT administration before publishing the final plan.</div>
+    </section>
+
+    <section class="page" id="guidelines">
+      <div class="page-intro"><div class="eyebrow gold">THE ROYAL DECREE</div><h2>Fest <em>guidelines</em></h2><p>Upload your official fest rules and planning documents. Use this checklist as a starting point while awaiting verified college instructions.</p></div>
+      <div class="upload-panel panel"><div class="upload-icon">⇧</div><div><h3>Upload your fest documents</h3><p class="muted">Add guidelines, venue details, budgets, permission notes or activity briefs (.txt, .md, .csv, .pdf).</p><input type="file" id="fileInput" multiple accept=".txt,.md,.csv,.pdf"><div id="fileStatus" class="file-status">No documents uploaded yet.</div></div></div>
+      <div class="guideline-grid"><article class="panel"><div class="eyebrow">BEFORE THE FEST</div><h3>Preparation checklist</h3><div id="checklist"></div></article><article class="panel"><div class="eyebrow">DURING THE FEST</div><h3>On-ground essentials</h3><ul class="plain-list"><li>Keep registration and help desks visible.</li><li>Have a stage manager and timekeeper.</li><li>Maintain clear emergency access routes.</li><li>Use crowd guidance and queue management.</li><li>Track equipment issue and return.</li><li>Keep first aid and drinking water accessible.</li></ul></article></div>
+      <div class="notice">These are common event-planning suggestions, not official DBIT rules. Follow the latest instructions issued by the college and event authorities.</div>
+    </section>
+
+    <section class="page" id="budget">
+      <div class="page-intro"><div class="eyebrow gold">THE TREASURER'S LEDGER</div><h2>Budget <em>tracker</em></h2><p>Estimate the cost of your activities and set a festival-wide spending limit.</p></div>
+      <div class="budget-top panel"><div><div class="eyebrow">TOTAL FESTIVAL BUDGET</div><h3>Set your spending limit</h3><p class="muted">This is a planning estimate. Confirm amounts with your organising committee.</p></div><label class="budget-input">₹ <input id="budgetLimit" type="number" min="0" value="100000"></label></div>
+      <div class="budget-cards"><article class="stat-card"><span>ALLOCATED</span><strong id="budgetAllocated">₹0</strong></article><article class="stat-card"><span>REMAINING</span><strong id="budgetRemaining">₹1,00,000</strong></article><article class="stat-card"><span>UTILISATION</span><strong id="budgetPercent">0%</strong></article></div>
+      <div class="panel"><div class="panel-head"><h3>Budget utilisation</h3><span class="muted">Activity estimates</span></div><div class="progress-track"><div id="budgetProgress"></div></div><div id="budgetBreakdown" class="budget-breakdown"></div></div>
+    </section>
+    <footer>✦ &nbsp; DBIT FEST REALM <span>Built for better events · Verify all official details with DBIT</span></footer>
+  </main>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body></html>
